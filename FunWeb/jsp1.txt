@@ -1,0 +1,618 @@
+hongcine@itwillbs.co.kr
+
+자바 - 안드로이드앱
+       - JSP - 모델2(MVC) - 프레임워크(스프링)
+자바스크립스,jQuery
+web표준(html,css)
+데이터베이스
+빅데이터 수집 분석(파이썬,R), 시각화
+
+정적웹프로그램- html,css,자바스크립트,jQuery - 유저(클라이언트),서버 동작
+                    - 프론트엔드
+동적웹프로그램- jsp,php,asp,ASP.NET - 서버동작
+                    - 백엔드
+
+공유방
+ftp://192.168.1.200
+\\192.168.1.200
+
+자기소개(이름,나이,취미,특기...)
+경력(컴퓨터실력,경력,전공,...)
+배우러온 목적
+공부계획(자격증취득,..)
+진로(취업진로,...)
+하고싶은 이야기
+
+아이티윌 부산교육센터 카페
+https://cafe.naver.com/learntimes
+
+JSP(Java Server Page)
+1. JAVA -> JDK(JVM) 설치
+https://www.oracle.com/technetwork/java/index.html
+공유방
+ftp://192.168.1.200
+\\192.168.1.200
+
+cmd
+java -version
+javac -version
+
+환경설정
+실행파일 경로를 시스템에 알려줌
+path 
+C:\Program Files\Java\jdk1.8.0_131\bin
+
+실행환경 경로를 시스템에 알려줌
+새로만들기
+CLASSPATH
+.;C:\Program Files\Java\jdk1.8.0_131\lib\tools.jar
+
+
+2. 웹서버(웹애플리케이션서버)(아파치톰캣)설치=> 웹서비스
+http://tomcat.apache.org/
+apache-tomcat-8.0.44
+
+설치
+C:\Program Files\Apache Software Foundation\Tomcat 8.0\bin
+Tomcat8w.exe - 관리자권한으로 실행
+웹서비스 start
+
+확인
+사용자 - 웹브라우저
+주소 http://localhost:8080
+
+웹서버 화면에 보이는 파일이 저장된 위치
+C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps\ROOT
+index.jsp
+test1.html
+test2.jsp
+복사해서 넣기
+
+주소 http://localhost:8080/index.jsp
+주소 http://localhost:8080/test1.html
+주소 http://localhost:8080/test2.jsp
+주소 http://127.0.0.1:8080/test2.jsp
+
+실행
+cmd
+ipconfig
+192.168.1.200
+주소 http://192.168.1.200:8080/test2.jsp
+
+방화벽 해제
+네트워크 공유센터
+window defender 방화벽
+window defender 방화벽 설정 또는 해제
+window defender 방화벽 사용 안함
+
+주소 http://192.168.1.4:8080/test2.jsp
+
+test2.jsp를 처리한 결과인 응답결과 자바파일 저장
+C:\Program Files\Apache Software Foundation\Tomcat 8.0\work\Catalina\localhost\ROOT\org\apache\jsp
+
+
+
+
+3. 데이터베이스 서버 설치
+
+4. 개발툴(이클립스)
+한글 환경설정 - utf-8 설정
+1) 서버 가져오기
+2) 프로젝트 만들기
+3) 서버와 프로젝트 연결
+
+사용자,클라이언트,유저 -> 웹브라우저 url http://localhost:8080/StudyJSP/js3/test7.html
+=> localhost:8080 서버 /StudyJSP/js3/test7.html 페이지보여달라고 요청
+=> http (클라이언트정보,서버정보) 들고 서버 이동
+
+=> 웹서버 => 요청 받아서 test7.html 찾기
+=> 그파일을 http 전달 => http 응답정보를 받아서 클라이언트로 이동
+=> 웹브라우저 화면에 응답정보를 보여줌
+
+
+
+사용자,클라이언트,유저 -> 웹브라우저 url http://localhost:8080/StudyJSP/js3/a.jsp
+=> localhost:8080 서버 /StudyJSP/js3/a.jsp 페이지보여달라고 요청
+=> http (클라이언트정보,태그입력정보,서버정보) 들고 서버 이동
+
+=> 웹서버(아파치) => 요청 받아서 a.jsp 찾기
+=> 웹애플리케이션 서버(톰캣,WAS,웹컨테이너,jsp처리) 
+=> 처리결과(java)=>출력html => 응답정보 => 웹서버 전달
+=> 응답정보를 http 전달 => http 응답정보를 받아서 클라이언트로 이동
+=> 웹브라우저 화면에 응답정보를 보여줌
+
+FTP,SMTP,TCP/IP,HTTP
+FTP:파일전송프로토콜
+http프로토콜 (통신규약): HyperText Transfer Protocol
+                       : 서버 요청, 클라이언트 응답
+                       : get방식 요청, post방식 요청
+
+
+
+사용자,클라이언트,유저 -> 웹브라우저 url http://localhost:8080/StudyJSP/js3/a.jsp
+=> localhost:8080 서버 /StudyJSP/js3/a.jsp 페이지보여달라고 요청
+=> http (클라이언트정보,태그입력정보,서버정보) 들고 서버 이동
+
+=> 웹서버(아파치) => 요청 받아서 a.jsp 찾기
+=> 웹애플리케이션 서버(톰캣,WAS,웹컨테이너,jsp처리) :처리담당서버
+=> http가 들고온 정보를 request,response 기억장소를 만들어서 요청정보저장
+=> 처리담당자(서블릿) 새로만들어짐(생성,초기화,스레드),동시에 동작(처리)
+=>  service() , doGet() , doPost() 함수  자동으로 호출 동작
+=> 처리결과(java)=>출력html => 응답정보 => 웹서버에 전달
+=> 응답정보를 http 전달 => http 응답정보를 받아서 클라이언트로 이동
+=> 웹브라우저 화면에 응답정보를 보여줌
+=> request,response,처리담당자(서블릿) 스레드 소멸
+
+주석
+<% %> 자바,jsp 실행문
+<%=%> 태그 중간 간단 출력
+<%@%> 설정
+<%!%> 전역변수선언,메서드선언
+내장객체 : request,response,session,...
+액션태그 : forward,include,...
+세션,쿠키 
+데이터베이스 : insert 입력,update수정,delete삭제, select조회
+자바빈,자바디비
+회원가입,로그인,게시판
+FunWeb사이트 만들기 => 개인프로젝트 진행(주제,..)
+
+모델2(MVC)
+스프링
+
+
+3. 데이터베이스 서버 설치
+
+https://www.mysql.com/
+
+설치
+mysql-installer-web-community-5.7.25.0.msi
+
+root  
+1234
+
+환경변수설정
+실행파일 경로를 시스템에 알려줌
+path 
+C:\Program Files\MySQL\MySQL Server 5.7\bin
+
+
+데이터베이스 서버 접근
+cmd
+mysql -u root -p
+1234
+
+데이터베이스(DB) : 데이터를 저장하는 공간
+데이터베이스관리시스템(DBMS) : 오라클, MS-SQL, Mysql, ....
+
+데이터베이스 목록확인
+show databases;
+
+데이터베이스 만들기(생성) : 프로젝트 전체 공간
+create database jspdb1;
+
+show databases;
+
+데이터베이스 선택
+use jspdb1;
+
+테이블 목록확인
+show tables;
+
+테이블 만들기(생성) : 데이터베이스안에 주제별로 저장할 공간 만들기
+create table student(
+	num int,
+        name varchar(10)
+);
+
+show tables;
+
+테이블안에 저장할 공간 내용 확인
+desc student;
+
+테이블안에 저장된 내용 확인
+select * from student;
+
+테이블에 학생한명 저장
+insert into student(num,name)
+ values(1,'kimgildong');
+
+select * from student;
+
+데이터베이스 한글설정 확인
+status;
+Server characterset:    latin1
+Db     characterset:    latin1
+=> utf8
+
+한글 환경설정파일
+C:\ProgramData\MySQL\MySQL Server 5.7
+my.ini
+character-set-server=utf8
+
+테이블 삭제
+drop table student;
+
+데이터 베이스 삭제
+drop database jspdb1;
+
+SQL
+데이터 정의의(DDL):create, alter, drop
+데이터 조작어(DML):조회select / 입력insert, 수정 update, 삭제 delete
+데이터 제어어(DCL):권한부여grant, 권한해제 revoke
+
+
+데이터베이스 목록확인
+show databases;
+
+데이터베이스 만들기(생성) : 프로젝트 전체 공간
+create database jspdb1;
+
+show databases;
+
+데이터베이스 선택
+use jspdb1;
+
+테이블 목록확인
+show tables;
+
+테이블 만들기(생성) : 데이터베이스안에 주제별로 저장할 공간 만들기
+create table student(
+	num int primary key,
+        name varchar(10)
+);
+
+show tables;
+
+desc student;
+
+
+학생정보 입력
+insert into 테이블이름(열이름,열이름)
+values(값,'값');
+
+insert into student(num,name)
+values(1,'홍길동');
+
+insert into student
+values(2,'이길동');
+
+insert into student(num)
+values(3);
+
+//ERROR 1364 (HY000): Field 'num' doesn't have a default value
+insert into student(name)
+values('이순신');
+
+//ERROR 1062 (23000): Duplicate entry '1' for key 'PRIMARY'
+insert into student(num,name)
+values(1,'홍길동');
+
+학생정보 조회
+select 열이름,열이름/모든열 * from 테이블이름;
+select * from student;
+
+select name from student;
+
+select * from student
+where num=1;
+
+// 이름이 '이길동' 조회
+select * from student
+where name='이길동';
+
+// 번호가 2번 이면서 이름이 '이길동' 조회 and
+select * from student
+where num=2 and name='이길동';
+
+// 이름이 '홍길동' 이거나 '이길동' 조회 or
+select * from student
+where name='홍길동' or name='이길동';
+
+// 정렬 기준num 오름차순
+select * from student;
+
+// num 기준 내림차순
+select * from student
+order by num desc;
+
+// name 기준 오름차순
+select * from student
+order by name asc;
+
+insert into student(num,name)
+values(4,'홍길동');
+
+// name 기준 내림차순 하고  그중에 num을 기준으로 내림차수
+select * from student
+order by name desc, num desc ;
+
+// 학생정보 수정
+update 테이블이름 set 수정할열이름=수정할값,열이름=값
+where 조건열=값
+
+// 3번학생 이름 '유관순' 변경
+update student set name='유관순'
+where num=3;
+
+
+// 4번학생의 번호를 5번, 이름을 '오길동' 변경
+update student set num=5, name='오길동'
+where num=4 and name='홍길동';
+
+// 이길동 학생의    번호를 6번 변경 
+update student set num=6
+where name='이길동';
+
+// 유관순 학생의     번호를 7번, 이름을 유길순 변경
+update student set num=7, name='유길순'
+where name='유관순';
+
+
+// 학생정보 삭제
+delete from 테이블이름
+where 조건열=값;
+
+delete from student
+where num=7;
+
+
+// 이름이 '이길동' 삭제
+delete from student
+where name='이길동';
+
+// 번호가 5번 이고 이름이 '오길동' 삭제
+delete from student
+where num=5 and name='오길동';
+
+// java,jsp => DB (Mysql,Oracle..) 접속
+// JDBC(Java Data Base Conectivity) : 자바와  DBMS을 연결시켜주는 API(응용프로그램 인터페이스) 
+// JDBC 프로그램 설치
+이클립스
+WebContent-WEB-INF-lib -복사해서 붙여넣기
+mysql-connector-java-5.1.47.jar
+
+// 1단계 - JDBC 프로그램을 가져오기
+// 2단계 - 설치한 JDBC프로그램을 이용해서 디비연결(디비접속주소,아이디,비밀번호) => 연결정보 저장
+// 3단계 - 연결정보를 이용해서 sql구문을 만들고 실행할 객체생성 
+// 4단계 - 만든 객체 실행   insert,update,delete 
+//         만든 객체 실행 결과를 저장 select
+// 5단계 - 저장된 결과를 출력, 배열저장 select
+
+
+// 쇼핑몰 프로젝트 
+// 쇼핑몰에 관련된 전체를 저장할 공간 만들기 : 데이터 베이스 만들기 jspdb1
+// 쇼핑몰 데이터베이스를 관리할 사용자 만들기 : 디비접속 아이디 jspid 비밀번호 jsppass
+
+// 디비접속사용자아이디 : jspid , 비밀번호 jsppass
+
+//create user 'jspid'@'localhost' identified by 'jsppass';
+//create user 'jspid'@'%' identified by 'jsppass';
+
+cmd 
+mysql -u root -p
+1234
+
+grant select,insert,update,delete,create,drop,alter
+on jspdb1.* to 'jspid'@'localhost'
+identified by 'jsppass';
+
+grant select,insert,update,delete,create,drop,alter
+on jspdb1.* to 'jspid'@'%'
+identified by 'jsppass';
+
+cmd 
+mysql -u jspid -p
+jsppass
+
+show databases;
+
+use jspdb1;
+
+
+
+// 쇼핑몰 데이터베이스 안에 주제별로 저장할 공간 만들기 : 
+   회원테이블,상품테이블,장바구니테이블,주문테이블, 게시판테이블,...
+
+//회원테이블  member
+아이디 , 이름, 비밀번호,회원가입날짜, 주소,우편번호, 전화번호, 메일주소,....
+
+create table member(
+   id varchar(10) primary key,
+   pass varchar(10),
+   name varchar(20),
+   reg_date datetime
+);
+
+show tables;
+desc member;
+
+p505 회원가입화면
+
+cmd
+mysql -u root -p
+1234
+
+use jspdb1;
+show tables;
+desc member;
+
+alter table member
+add age int;
+
+alter table member
+add gender varchar(5);
+
+alter table member
+add email varchar(30);
+
+desc member;
+
+p568 참조
+http://www.ppomppu.co.kr/
+게시판
+글번호  글쓴이 비밀번호 제목   내용   조회수 등록일
+
+create table board(
+  num int primary key,
+  name varchar(20),
+  pass varchar(15),
+  subject varchar(50),
+  content varchar(2000),
+  readcount int,
+  date date
+);
+
+show tables;
+desc board;
+
+
+순차적              : JSP(화면 + 처리 + 디비)
+DB분리              : JSP(화면 + 처리) + JAVA(디비)
+처리분리(모델2,MVC) : JSP(화면) + JAVA(처리) + JAVA(디비)
+프레임워크 : 스프링
+
+FunWeb  회원가입 정보 추가
+
+cmd
+mysql -u root -p
+1234
+
+use jspdb1;
+show tables;
+desc member;
+
+alter table member
+add address varchar(50);
+
+alter table member
+add phone varchar(20);
+
+alter table member
+add mobile varchar(20);
+
+desc member;
+
+게시판 참조 사이트
+http://www.ppomppu.co.kr/
+
+p305
+파일업로드
+1. 파일업로드 =>  upload폴더 파일 저장 / 파일이름 디비에 저장
+2. 파일업로드 =>  디비에 파일이 바로 저장
+
+// 데이터베이스 board테이블  file이름 저장할 공간 만들기
+cmd
+mysql -u root -p
+1234
+
+use jspdb1;
+show tables;
+desc board;
+
+
+alter table board
+add file varchar(100);
+
+// 이클립스 WebContent 밑에  upload폴더 만들기
+
+// 업로드할 프로그램 설치
+
+http://www.servlets.com
+com.oreilly.servlet
+Download
+cos-20.08.zip 
+압출 풀기
+cos-20.08\lib   
+
+cos.jar 파일 설치
+
+WebContent 밑에 WEB-INF 밑에 lib 폴더  cos.jar
+
+
+alter table board
+add indent int;
+
+alter table board
+add step int;
+
+-- 필드삭제 --
+ex) alter table test drop content   // content 필드를 삭제합니다.
+
+create table fdownload(
+  num int primary key,
+  name varchar(20),
+  pass varchar(15),
+  subject varchar(50),
+  content varchar(2000),
+  readcount int,
+  date date,
+  file varchar(100)
+);
+
+--------------------------------------------------------------------
+방화벽 해제
+http://192.168.1.200:8080/FunWeb/member/join.jsp
+------------------------------------------------------------------
+//답글 달기
+
+글번호   제목      답글그룹번호re_ref      답글들여쓰기re_lev      답글순서re_seq
+  3      제목3          3                          0                0
+  5        답글3        3                          1                1
+  6          답글3_1    3                          2                2
+  2      제목2          2                          0                0
+  1      제목1          1                          0                0
+  4        답글1        1                          1                1
+
+
+
+
+cmd
+mysql -u root -p
+1234
+--------- 답글 테이블 생성 -----------
+use jspdb1;
+show tables;
+desc board;
+
+alter table board
+add re_ref int;
+
+alter table board
+add re_lev int;
+
+alter table board
+add re_seq int;
+----------------------------------
+댓글 달기 테이블 생성
+
+create table comment(
+num int primary key,
+comment varchar(1000),
+connum int,
+id varchar(10),
+date date
+constraint connum_fk foreign key (connum)
+references board(num)
+);
+
+
+--------------------------------
+우편번호 데이터베이스 생성
+
+CREATE TABLE IF NOT EXISTS `zipcode` (
+
+  `zipcode` varchar(100),
+
+  `area1` varchar(100),
+
+  `area2` varchar(100),
+
+  `area3` varchar(100),
+
+  `area4` varchar(100)
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+--------------------------------------------
+alter table member
+add zipcode varchar(20);
+
