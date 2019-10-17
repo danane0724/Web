@@ -28,7 +28,7 @@
  		$('#join').submit(function(){
  			var id=$('.id').val();
  			if(id==""){
- 				alert("아이디입력하세요");
+ 				alert("아이디입력하세요!!");
  				$('.id').focus();
  				return false;
  			}
